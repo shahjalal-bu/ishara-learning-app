@@ -34,7 +34,7 @@ export function AuthProvider({ children }) {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      // setLoading(false);
+      setLoading(false);
       const apiCall = async () => {
         if (user?.email) {
           await addUser({
