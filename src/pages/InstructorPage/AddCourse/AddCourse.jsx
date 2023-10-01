@@ -28,6 +28,7 @@ const AddCourse = () => {
   const onSubmit = async (data) => {
     data.instructorName = currentUser?.displayName;
     data.instructorEmail = currentUser?.email;
+    data.instructorPhotoUrl = currentUser?.photoURL;
     const currentDate = new Date();
     data.publishDate = currentDate.toDateString();
     data.totalEnrolled = 0;
@@ -108,6 +109,36 @@ const AddCourse = () => {
             <div className="mb-4 flex-1">
               <label
                 className="text-white block  font-bold mb-2"
+                htmlFor="instructorTitle"
+              >
+                Instructor Title
+              </label>
+              <input
+                className=" text-white appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                id="price"
+                type="text"
+                placeholder="Enter instructor title"
+                {...register("instructorTitle", { required: true })}
+              />
+            </div>
+            <label
+              className="text-white block  font-bold mb-2"
+              htmlFor="whatYouGet"
+            >
+              What You Get in This Course
+            </label>
+            <textarea
+              className=" text-white appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+              id="whatYouGet"
+              type="text"
+              placeholder="Enter What You Get"
+              {...register("whatYouGet", { required: true })}
+            />
+          </div>
+          <div className="mb-4 flex-1">
+            <div className="mb-4 flex-1">
+              <label
+                className="text-white block  font-bold mb-2"
                 htmlFor="className"
               >
                 Course Price
@@ -122,16 +153,16 @@ const AddCourse = () => {
             </div>
             <label
               className="text-white block  font-bold mb-2"
-              htmlFor="what-you-get"
+              htmlFor="whatYouGet"
             >
               What You Get in This Course
             </label>
             <textarea
               className=" text-white appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
-              id="what-you-get"
+              id="whatYouGet"
               type="text"
               placeholder="Enter What You Get"
-              {...register("what-you-get", { required: true })}
+              {...register("whatYouGet", { required: true })}
             />
           </div>
         </div>

@@ -13,7 +13,29 @@ const useApi = () => {
     const response = await Axios.get("/courses");
     return response.data;
   };
+  //enroll a course
+  const enrollCourse = async (data) => {
+    const response = await Axios.put(`/courses/enroll`, data);
+    return response.data;
+  };
 
+  //add a syllabus
+  const addSyllabus = async (data) => {
+    const response = await Axios.put(
+      `/courses/addSyllabus/${data.courseId}`,
+      data
+    );
+    return response.data;
+  };
+
+  //add a syllabus
+  const addContent = async (data) => {
+    const response = await Axios.put(
+      `/courses/addContent/${data.courseId}`,
+      data
+    );
+    return response.data;
+  };
   //   //add users
   //   const addUser = async (newUser) => {
   //     const response = await Axios.post("/users", newUser);
@@ -90,6 +112,9 @@ const useApi = () => {
   return {
     addCourse,
     getAllCourses,
+    enrollCourse,
+    addSyllabus,
+    addContent,
   };
 };
 
